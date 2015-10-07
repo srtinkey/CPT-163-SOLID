@@ -1,5 +1,5 @@
 - var revealLocation = 'bower_components/reveal.js/'
-- var titleData = { title: "Title", subtitle: "Subtitle", author: "Author", twitter: "@Twitter", email: "name@domain.com" }
+- var titleData = { title: "S.O.L.I.D", subtitle: "Not just a state of matter", author: "Paul Scarrone", twitter: "@PaulSCoder", email: "paul.scarrone@gmail.com" }
 doctype html
 html(lang="en")
 
@@ -13,23 +13,90 @@ html(lang="en")
     .reveal
       .slides
         +titleSlide(titleData)
-        +ulSlide("Get Started", [
-          "npm install -g bower grunt",
-          "npm install",
-          "bower install",
-          "grunt serve",
-          "go to localhost:8000/example/"
-          ])
-        +bigTitleSlide("I am a big title slide")
-          p Enjoy
-        +slide()
-          p This is a normal Slide. Just nest jade under me
-        +slideGroup()
-          +bigTitleSlide("First Slide in a group")
-          +bigTitleSlide("Last Slide in a group")
-        +slide
-          :markdown
-            # Markdown flavored Slide
-            ## Thank you Jade
+        +bigTitleSlide("This is a big picture view of design")
+          +speakerNotes
+            :markdown
+              [http://www.kirkk.com/modularity/2009/12/solid-principles-of-class-design/](http://www.kirkk.com/modularity/2009/12/solid-principles-of-class-design/)
+
+        +slideGroup
+          +bigTitleSlide("S")
+            :markdown
+              #### is for
+              # Single Responsibility Principle
+
+          +bigTitleSlide("Classes should change for only a single reason.")
+            +speakerNotes
+              include:markdown speakerNotes/srp.md
+
+        +slideGroup
+          +bigTitleSlide("O")
+            :markdown
+              #### is for
+              # Open Closed Principle
+
+          +bigTitleSlide("Classes should be open for extension, but closed for modification.")
+            +speakerNotes
+              include:markdown speakerNotes/ocp.md
+
+          +bigTitleSlide("WHA?")
+            :markdown
+              - You should design modules that never change.
+              - When requirements change, you extend the behavior of such modules by adding new code, not by changing old code that already works.
+
+          +bigTitleSlide("Open")
+            :markdown
+              A module will be said to be open if it is still available for extension. For example, it should be possible to add fields to the data structures it contains, or new elements to the set of functions it performs.
+
+          +bigTitleSlide("Closed")
+            :markdown
+              A module will be said to be closed if it is available for use by other modules. This assumes that the module has been given a well-defined, stable description (the interface in the sense of information hiding).
+
+        +slideGroup
+          +bigTitleSlide("L")
+            :markdown
+              #### is for
+              # Liskov’s Substitution Principle
+
+          +bigTitleSlide("Subclasses should be substitutable for their base classes.")
+            +speakerNotes
+              include:markdown speakerNotes/lsp.md
+
+          +bigTitleSlide("Precondition")
+            :markdown
+              - A contract that must be satisfied before a method can be invoked
+              - If the precondition is not met, the method should not be invoked
+
+          +bigTitleSlide("Postcondition")
+            :markdown
+              - Must be true upon method completion
+              - if the postcondition is not met, the method should not return
+
+        +slideGroup
+          +bigTitleSlide("I")
+            :markdown
+              #### is for
+              # Interface Segregation Principle
+
+          +bigTitleSlide("Many specific interfaces are better than a single, general interface.")
+            +speakerNotes
+              include:markdown speakerNotes/isp.md
+
+          +bigTitleSlide("Specific Interface")
+            :markdown
+               An interface should be responsible for allowing an object to assume a single role, assuming the class of which that object is an instance implements that interface.
+
+        +slideGroup
+          +bigTitleSlide("D")
+            :markdown
+              #### is for
+              # Dependency Inversion Principle
+
+          +bigTitleSlide("Depend upon abstractions. Do not depend upon concretions.")
+            +speakerNotes
+              include:markdown speakerNotes/dip.md
+
+          +bigTitleSlide("WHA?")
+            :markdown
+              Use a "factory" to create instances of your classes so they do not have to be coupled on the concrete level
 
     include ./shared/footer
