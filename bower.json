@@ -1,0 +1,19 @@
+{
+  "name": "RevealJade",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ninjapanzer/RevealJade",
+  "authors": [
+    "Paul Scarrone"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal.js": "~3.1.0"
+  }
+}
